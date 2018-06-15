@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Obs
   - ground
+  - checkpoint
+  - finish
   layers:
   - Default
   - TransparentFX

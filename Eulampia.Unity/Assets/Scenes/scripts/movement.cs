@@ -19,11 +19,17 @@ public class movement : checkpoint {
             transform.position = new Vector3(0.22f, 0.9076411f, -1.84f);
 
         }
+        if (collisionInfo.collider.tag == "finish")
+        {
+            rb.AddForce(100, 1000, 0);
+
+
+        }
     }
 
     // Update is called once per frame
     void Update () {
-
+        
         if (Input.GetKey(KeyCode.D) && IsGrounded)
             rb.AddForce(50, 0, 0);
         else
