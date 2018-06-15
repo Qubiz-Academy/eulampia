@@ -1,12 +1,12 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class movement : MonoBehaviour {
+public class movement : checkpoint {
     public Rigidbody rb;
     public Transform transform;
     public bool IsGrounded { get; set; }
 
-
+    
     private void OnCollisionEnter(Collision collisionInfo)
     {
         if (collisionInfo.collider.tag == "ground")
@@ -14,10 +14,16 @@ public class movement : MonoBehaviour {
            
             IsGrounded = true;
         }
+        if (collisionInfo.collider.tag == "Obs")
+        {
+            transform.position = new Vector3(0.22f, 0.9076411f, -1.84f);
+
+        }
     }
 
     // Update is called once per frame
     void Update () {
+
         if (Input.GetKey(KeyCode.D) && IsGrounded)
             rb.AddForce(50, 0, 0);
         else
@@ -36,8 +42,7 @@ public class movement : MonoBehaviour {
                 IsGrounded = false;
             }
 
-        if (transform.position.y < -1)
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            transform.position = new Vector3(0.22f, 0.9076411f, -1.84f);
+        if (transform.position.y < -1 )
+            transform.position = checkpointS;
         }
 }
