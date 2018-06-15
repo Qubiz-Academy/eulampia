@@ -12,19 +12,19 @@ public class movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.D))
-            rb.AddForce(10, 0, 0);
+            rb.AddForce(100, 0, 0);
         else
                  if (Input.GetKeyDown(KeyCode.W))
-                    rb.AddForce(0, 0, 10);
+                    rb.AddForce(0, 0, 100);
                  else
                         if (Input.GetKeyDown(KeyCode.A))
-                            rb.AddForce(-10, 0, 0);
+                            rb.AddForce(-100, 0, 0);
                          else
                                 if (Input.GetKeyDown(KeyCode.S))
-                                     rb.AddForce(0, 0, -10);
+                                     rb.AddForce(0, 0, -100);
                              
         if (Input.GetKeyDown(KeyCode.Space))
-            rb.AddForce(0, 10, 0);
+            rb.AddForce(0, 100, 0);
 
     }
 }
