@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class finish : MonoBehaviour {
-    public Text text;
-	// Use this for initialization
-	void Start () {
-		
+    public GameObject CompleteLevelUI;
+    // Use this for initialization
+    void Start () {
+        
 	}
     private void OnCollisionEnter(Collision collision)
     {
-        text.enabled = true;
-        
+        CompleteLevelUI.SetActive(true);
+
+
     }
     // Update is called once per frame
     void Update () {
