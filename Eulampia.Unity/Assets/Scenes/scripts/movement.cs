@@ -7,7 +7,7 @@ public class movement : checkpoint {
     public bool IsGrounded { get; set; }
     public bool IsPause { get; set; }
     public bool SP { get; set; }
-
+    Rigidbody RigidBodyP;
     private void OnCollisionEnter(Collision collisionInfo)
     {
         if (collisionInfo.collider.tag == "ground")
@@ -26,9 +26,17 @@ public class movement : checkpoint {
         if (collisionInfo.collider.tag == "Obs")
         {
             if (checkpointS == new Vector3(0.22f, 0.9076411f, -1.84f))
+            {
+
+
                 transform.position = new Vector3(0.22f, 0.9076411f, -1.84f);
+               
+            }
             else
+                 {
                 transform.position = new Vector3(86.2f, 0.95f, -1.84f);
+               
+                }
 
         }
         if (collisionInfo.collider.tag == "finish")
@@ -39,7 +47,7 @@ public class movement : checkpoint {
         }
     }
 
-    Rigidbody RigidBodyP;
+    
     public GameObject Pause;
     public void pause()
     {
@@ -64,7 +72,8 @@ public class movement : checkpoint {
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, platform.transform.position.z);
     }
-    public void Update() {
+    public void Update()
+    {
 
         if (Input.GetKeyDown(KeyCode.Escape))
             pause();
@@ -76,29 +85,29 @@ public class movement : checkpoint {
 
 
         if (Input.GetKey(KeyCode.D) && IsGrounded)
-         
+
             rb.AddForce(40, 0, 0);
-           
-        
+
+
         else
                  if (Input.GetKey(KeyCode.W) && IsGrounded)
-                
-                    rb.AddForce(0, 0, 40);
-                    
-                    
-                 else
+
+            rb.AddForce(0, 0, 40);
+
+
+        else
                         if (Input.GetKey(KeyCode.A) && IsGrounded)
-                          
-                            rb.AddForce(-40, 0, 0);
-                             
-                          
-    
-                         else
+
+            rb.AddForce(-40, 0, 0);
+
+
+
+        else
                                 if (Input.GetKey(KeyCode.S) && IsGrounded)
-                               
-                                     rb.AddForce(0, 0, -40);
-                              
-                               
+
+            rb.AddForce(0, 0, -40);
+
+
 
 
         if (transform.position.y > 0.5)
@@ -110,7 +119,9 @@ public class movement : checkpoint {
                     SP = false;
             }
 
-        if (transform.position.y < -1 )
+        if (transform.position.y < -1)
+        {
             transform.position = checkpointS;
         }
+    }
 }
