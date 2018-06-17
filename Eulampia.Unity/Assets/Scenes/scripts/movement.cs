@@ -33,7 +33,7 @@ public class movement : checkpoint {
         }
         if (collisionInfo.collider.tag == "finish")
         {
-            rb.AddForce(100, 1000, 0);
+            rb.AddForce(100, 5000, 0);
 
 
         }
@@ -69,7 +69,7 @@ public class movement : checkpoint {
         if (Input.GetKeyDown(KeyCode.Escape))
             pause();
 
-        if (SP == true && (!Input.anyKey || !Input.anyKeyDown))
+        if (SP == true && !Input.anyKey)
             platformPosition();
 
 
@@ -77,26 +77,26 @@ public class movement : checkpoint {
 
         if (Input.GetKey(KeyCode.D) && IsGrounded)
          
-            rb.AddForce(50, 0, 0);
+            rb.AddForce(40, 0, 0);
            
         
         else
                  if (Input.GetKey(KeyCode.W) && IsGrounded)
                 
-                    rb.AddForce(0, 0, 50);
+                    rb.AddForce(0, 0, 40);
                     
                     
                  else
                         if (Input.GetKey(KeyCode.A) && IsGrounded)
                           
-                            rb.AddForce(-50, 0, 0);
+                            rb.AddForce(-40, 0, 0);
                              
                           
     
                          else
                                 if (Input.GetKey(KeyCode.S) && IsGrounded)
                                
-                                     rb.AddForce(0, 0, -50);
+                                     rb.AddForce(0, 0, -40);
                               
                                
 
