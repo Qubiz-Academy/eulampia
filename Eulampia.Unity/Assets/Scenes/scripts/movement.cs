@@ -101,7 +101,7 @@ public class movement : checkpoint {
                                
 
 
-        if (transform.position.y > 0.5 && transform.position.y < 1 && (transform.position.x<90 || transform.position.x >113))
+        if (transform.position.y > 0.5)
             if (IsGrounded && Input.GetKeyDown(KeyCode.Space))
             {
                 rb.AddForce(0, 8, 0, ForceMode.VelocityChange);
