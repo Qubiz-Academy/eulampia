@@ -3043,7 +3043,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1564745785}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.61, y: 1.14, z: -1.73}
+  m_LocalPosition: {x: 1.8, y: 1.14, z: -3.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3091,7 +3091,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ab54604871f5fc44a8ee347d72d6fe46, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e1bbd60a60e074b4bbe87a829b30aec3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3908,7 +3908,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 15efa2f04a78eb54c86710c9bdc356b4, type: 2}
+  - {fileID: 2100000, guid: 31c6edcabe66d9a49a88d2176b5f08c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

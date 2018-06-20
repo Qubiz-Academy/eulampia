@@ -9,6 +9,7 @@ TagManager:
   - checkpoint
   - finish
   - specialPlatform
+  - specialplatfom2
   layers:
   - Default
   - TransparentFX
