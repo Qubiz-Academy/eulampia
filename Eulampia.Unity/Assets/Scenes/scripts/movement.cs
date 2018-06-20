@@ -62,7 +62,7 @@ public class movement : checkpoint {
             RigidBodyP = GetComponent<Rigidbody>();
 
             RigidBodyP.constraints = RigidbodyConstraints.FreezeAll;
-
+           
             Pause.SetActive(true);
             IsPause = true;
         }
@@ -74,6 +74,8 @@ public class movement : checkpoint {
     }
     public void Update()
     {
+
+       
 
         if (Input.GetKeyDown(KeyCode.Escape))
             pause();
@@ -113,7 +115,7 @@ public class movement : checkpoint {
         if (transform.position.y > 0.5)
             if (IsGrounded && Input.GetKeyDown(KeyCode.Space))
             {
-                rb.AddForce(0, 8, 0, ForceMode.VelocityChange);
+                rb.AddForce(0, 400, 0);
                 IsGrounded = false;
                 if (SP)
                     SP = false;
