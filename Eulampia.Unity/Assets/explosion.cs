@@ -16,7 +16,7 @@ public class Explosion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (mv.transform.position.x < 35 && mv.transform.position.x > 28)
+        if (mv.transform.position.x < 33 && mv.transform.position.x > 30)
             part.Play();
     }
 }
