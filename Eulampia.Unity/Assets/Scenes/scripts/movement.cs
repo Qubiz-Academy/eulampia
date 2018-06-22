@@ -1,7 +1,8 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
-public class movement : checkpoint
+
+public class Movement : Checkpoint
 {
     public Rigidbody rb;
     public Transform transform;
@@ -10,15 +11,15 @@ public class movement : checkpoint
     public bool SP { get; set; }
     public bool SP2 { get; set; }
     public bool IsJumping { get; set; }
+
     Rigidbody RigidBodyP;
+
     private void OnCollisionEnter(Collision collisionInfo)
     {
         IsJumping = false;
         if (collisionInfo.collider.tag == "ground")
         {
-
             IsGrounded = true;
-
         }
         else if (collisionInfo.collider.tag == "specialPlatform")
         {
@@ -30,38 +31,34 @@ public class movement : checkpoint
             IsGrounded = false;
             SP = false;
         }
+
         if (collisionInfo.collider.tag == "specialplatfom2")
         {
             SP2 = true;
             IsGrounded = true;
         }
         else
+        {
             SP2 = false;
+        }
 
         if (collisionInfo.collider.tag == "Obs")
         {
             if (checkpointS == new Vector3(0.22f, 0.9076411f, -1.84f))
             {
-
-
                 transform.position = new Vector3(0.22f, 0.9076411f, -1.84f);
-
             }
             else
             {
                 transform.position = new Vector3(86.2f, 0.95f, -1.84f);
-
             }
-
         }
+
         if (collisionInfo.collider.tag == "finish")
         {
             rb.AddForce(100, 5000, 0);
-
-
         }
     }
-
 
     public GameObject Pause;
     public void pause()
@@ -82,6 +79,7 @@ public class movement : checkpoint
             IsPause = true;
         }
     }
+
     public GameObject platform;
     public void platformPosition()
     {
@@ -92,9 +90,6 @@ public class movement : checkpoint
     }
     public void Update()
     {
-
-
-
         if (Input.GetKeyDown(KeyCode.Escape))
             pause();
 
@@ -124,6 +119,7 @@ public class movement : checkpoint
             rb.AddForce(0, 0, -40);
 
         if (transform.position.y > 0.5)
+        {
             if (IsGrounded && Input.GetKeyDown(KeyCode.Space) && !IsJumping)
             {
                 rb.AddForce(0, 400, 0);
@@ -133,8 +129,8 @@ public class movement : checkpoint
                     SP = false;
                 if (SP2)
                     SP2 = false;
-
             }
+        }
 
         if (transform.position.y < -1)
         {

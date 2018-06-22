@@ -1,19 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class explosion : MonoBehaviour {
-
+public class Explosion : MonoBehaviour
+{
     public ParticleSystem part;
-    movement mv;
-    
-	void Start () {
+
+    private Movement mv;
+
+    void Start()
+    {
+        mv = GameObject.Find("player").GetComponent<Movement>();
+
         part.Stop();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (mv.transform.position.x < 35 && mv.transform.position.x > 30)
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (mv.transform.position.x < 35 && mv.transform.position.x > 28)
             part.Play();
-	}
+    }
 }

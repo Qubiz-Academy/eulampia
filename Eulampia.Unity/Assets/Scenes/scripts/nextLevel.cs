@@ -1,7 +1,7 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class nextLevel : MonoBehaviour {
+public class NextLevel : MonoBehaviour {
 
     public void LoadNextLevel()
     {
