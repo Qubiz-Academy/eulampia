@@ -5,11 +5,9 @@ public class Checkpoint : MonoBehaviour
 {
     // Use this for initialization
     public int i = 0;
-    public CheckpointArrival Part;
-    private void Start()
-    {
-        Part = GameObject.Find("PlasmaExplosionEffect").GetComponent<CheckpointArrival>();
-    }
+    
+
+   
     public Vector3 checkpointS = new Vector3(0.22f, 0.9076411f, -1.84f);
     private void OnTriggerEnter(Collider other)
     {

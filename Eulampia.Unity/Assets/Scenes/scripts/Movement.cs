@@ -11,30 +11,38 @@ public class Movement : Checkpoint
     public bool SP { get; set; }
     public bool SP2 { get; set; }
     public bool IsJumping { get; set; }
+    private ParticleSystem Part;
 
     Rigidbody RigidBodyP;
-
+    public void Start()
+    {
+        Part= GameObject.Find("SparksEffect").GetComponent<ParticleSystem>();
+    }
     private void OnCollisionEnter(Collision collisionInfo)
     {
         IsJumping = false;
         if (collisionInfo.collider.tag == "ground")
         {
             IsGrounded = true;
+            Part.Play();
         }
         else if (collisionInfo.collider.tag == "specialPlatform")
         {
             SP = true;
+            Part.Play();
             IsGrounded = true;
         }
         else
         {
             IsGrounded = false;
             SP = false;
+           
         }
 
         if (collisionInfo.collider.tag == "specialplatfom2")
         {
             SP2 = true;
+            Part.Play();
             IsGrounded = true;
         }
         else
@@ -92,7 +100,7 @@ public class Movement : Checkpoint
     {
         if (Input.GetKeyDown(KeyCode.Escape))
             pause();
-
+        
         if (SP)
             platformPosition();
 
