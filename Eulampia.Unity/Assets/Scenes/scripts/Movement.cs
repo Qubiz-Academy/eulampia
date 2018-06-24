@@ -12,11 +12,13 @@ public class Movement : Checkpoint
     public bool SP2 { get; set; }
     public bool IsJumping { get; set; }
     private ParticleSystem Part;
-
+    public GameObject ply;
     Rigidbody RigidBodyP;
     public void Start()
     {
-        Part= GameObject.Find("SparksEffect").GetComponent<ParticleSystem>();
+        IsPause = false;
+        RigidBodyP= GameObject.Find("player").GetComponent<Rigidbody>();
+        Part = GameObject.Find("SparksEffect").GetComponent<ParticleSystem>();
     }
     private void OnCollisionEnter(Collision collisionInfo)
     {
@@ -79,10 +81,10 @@ public class Movement : Checkpoint
         }
         else
         {
-            RigidBodyP = GetComponent<Rigidbody>();
+            
 
             RigidBodyP.constraints = RigidbodyConstraints.FreezeAll;
-
+            
             Pause.SetActive(true);
             IsPause = true;
         }
@@ -114,10 +116,10 @@ public class Movement : Checkpoint
         else
         {
             RigidBodyP = GetComponent<Rigidbody>();
-
-            RigidBodyP.constraints = RigidbodyConstraints.None;
+            if(!IsPause)
+                RigidBodyP.constraints = RigidbodyConstraints.None;
         }
-
+        if(!IsPause)
         if (Input.GetKey(KeyCode.D) && !IsJumping)
             rb.AddForce(40, 0, 0);
         else if (Input.GetKey(KeyCode.W) && !IsJumping)
@@ -127,9 +129,9 @@ public class Movement : Checkpoint
         else if (Input.GetKey(KeyCode.S) && !IsJumping)
             rb.AddForce(0, 0, -40);
 
-        
-       if (IsGrounded && Input.GetKeyDown(KeyCode.Space) && !IsJumping)
-         {
+        if(!IsPause)
+             if (IsGrounded && Input.GetKeyDown(KeyCode.Space) && !IsJumping)
+             {
              rb.AddForce(0, 400, 0);
              IsJumping = true;
              IsGrounded = false;
@@ -137,10 +139,10 @@ public class Movement : Checkpoint
                   SP = false;
               if (SP2)
                  SP2 = false;
-         }
+            }
        
 
-        if (transform.position.y < -1)
+        if (transform.position.y < -3)
         {
             transform.position = checkpointS;
         }
