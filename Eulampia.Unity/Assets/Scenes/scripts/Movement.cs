@@ -98,6 +98,7 @@ public class Movement : Checkpoint
     }
     public void Update()
     {
+       
         if (Input.GetKeyDown(KeyCode.Escape))
             pause();
         
@@ -126,19 +127,18 @@ public class Movement : Checkpoint
         else if (Input.GetKey(KeyCode.S) && !IsJumping)
             rb.AddForce(0, 0, -40);
 
-        if (transform.position.y > 0.5)
-        {
-            if (IsGrounded && Input.GetKeyDown(KeyCode.Space) && !IsJumping)
-            {
-                rb.AddForce(0, 400, 0);
-                IsJumping = true;
-                IsGrounded = false;
-                if (SP)
-                    SP = false;
-                if (SP2)
-                    SP2 = false;
-            }
-        }
+        
+       if (IsGrounded && Input.GetKeyDown(KeyCode.Space) && !IsJumping)
+         {
+             rb.AddForce(0, 400, 0);
+             IsJumping = true;
+             IsGrounded = false;
+              if (SP)
+                  SP = false;
+              if (SP2)
+                 SP2 = false;
+         }
+       
 
         if (transform.position.y < -1)
         {

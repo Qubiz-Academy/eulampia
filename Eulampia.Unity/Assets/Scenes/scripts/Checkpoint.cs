@@ -5,7 +5,7 @@ public class Checkpoint : MonoBehaviour
 {
     // Use this for initialization
     public int i = 0;
-    
+    public Transform Player;
 
    
     public Vector3 checkpointS = new Vector3(0.22f, 0.9076411f, -1.84f);
@@ -22,6 +22,6 @@ public class Checkpoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }
