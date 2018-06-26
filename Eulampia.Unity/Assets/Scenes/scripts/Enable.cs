@@ -8,7 +8,7 @@ public class Enable : MonoBehaviour {
     Rigidbody RB;
     Transform Camera2;
     Movement Pause;
-
+    public GameObject Text;
     // Use this for initialization
     void Start () {
         Camera2 = GameObject.Find("Main Camera").GetComponent<Transform>();
@@ -22,6 +22,7 @@ public class Enable : MonoBehaviour {
         {
            if(Pause.IsPause==false)
             {
+                Text.SetActive(false);
                 Camera.GetComponent<Follow>().enabled = true;
                 RB.constraints = RigidbodyConstraints.None;
             }
