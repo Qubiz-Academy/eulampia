@@ -11,9 +11,10 @@ public class DestroyCristal : Follow {
     public GameObject Player;
     Rigidbody RB;
     public GameObject Text;
+    public ParticleSystem Part2;
     public void OnTriggerEnter(Collider other)
     {
-        
+        Part2.Stop();
         Part.Play();
         GameObject.Destroy(GameObject2);
         Camera.GetComponent<Follow>().enabled = false;

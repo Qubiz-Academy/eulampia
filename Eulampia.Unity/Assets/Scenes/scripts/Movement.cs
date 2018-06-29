@@ -145,6 +145,9 @@ public class Movement : Checkpoint
         if (transform.position.y < -3)
         {
             transform.position = checkpointS;
+            RigidBodyP = GetComponent<Rigidbody>();
+            RigidBodyP.constraints = RigidbodyConstraints.FreezeAll;
+            RigidBodyP.constraints = RigidbodyConstraints.None;
         }
     }
 }
